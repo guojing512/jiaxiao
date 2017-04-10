@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0; border:0;}
+html { font-family:"微软雅黑"; }
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+body{ font-family:"微软雅黑";}
+ul,li{ list-style:none;}
+.clear{margin:0px; padding:0px; width:0px; height:0px; line-height:0px; font-size:0px; clear:both;}
+
+/**以下为公共部分**/
+
+/*头部*/
+.vr_header01{ width:1002px; margin:0px auto; margin-top:70px;}
+.vr_header01 img{ display:block; float:left;}
+
+.vr_header02{ width:100%; float:left; background:#333436; height:82px;}
+.vr_header02 div{ width:1002px; margin:0px auto;}
+.vr_header02 img{ display:block; float:left; margin-top:22px;}
+
+
+.vr_header_03{width:100%; height:82px; background:#333436; float:left}
+.vr_logo{float:left; display:inline; margin:23px 0 0 30px}
+.vr_dl{float:right; display:inline; margin:15px 37px 0 0; line-height:52px; font-size:14px; color:#f1f1f1}
+
+.vr_dl img{float:left; padding-right:10px; border-radius:50%;}
+.vr_dl h2 img{display: block;margin-top: -22px;}
+
+
+/*尾部*/
+.vr_footer{ width:100%; float:left; text-align:center; font-size:14px; color:#333436; line-height:58px; height:58px; background:#FFF;}
+
+
+/*******左侧*********/
+.vr_left{float: left; width: 250px; background: #1d8bd8; padding-bottom: 6180px; margin-bottom: -6180px;}
+.vr_list{width:100%; float:left}
+.vr_list ul li{width:100%; float:left; background:#0f64a5; border-bottom:1px solid #1d8bd8;}
+.vr_list ul li a{width:220px; padding:0 15px; color:#FFF; font-size:16px; line-height:56px; height:56px;  float:left}
+.vr_list ul li a img{vertical-align:-4px; padding-right:5px}
+.vr_list ul li .inactive{ background:url(../images/left_12.jpg) 184px center no-repeat}
+.vr_list ul li .inactives{background:url(../images/left_06.jpg) 184px center no-repeat} 
+.vr_list ul li ul{width:250px; padding:0 10px 0 30px; background:url(../images/left_15.jpg) 29px center #1d8bd8 repeat-y; float:left}
+.vr_list ul li ul li{width:100%; float:left; border-bottom:none;background:#1d8bd8;}
+.vr_list ul li ul li a{width:221px; padding:0 10px 0 20px; line-height:40px; height:40px; overflow:hidden; background:url(../images/left_11.jpg) left center #1d8bd8 no-repeat; font-size:14px; color:#FFF; border-bottom:none;}
+
+
+
+.vr_yu{margin-left:250px; display:block;}
+.vr_right{float: right; width:100%; background:#f1f1f1; min-height:600px;  padding-bottom: 6180px; margin-bottom: -6180px; }
+.vr_biao{padding:0 30px; line-height:60px; height:60px; background:#ffffff; font-size:16px; color:#333436}
+.vr_biao a{color:#333436}
+
+.vr_mian{ color: #FFF; overflow: hidden; width:100%; float:left;}
+
+
+/******分页****/
+.vr_fen{width:100%; float:left; display:inline; margin:30px 0; color:#333436; text-align:center;}
+.vr_fen a{padding:3px 8px; border:1px solid #dcdcdc; background:#FFF; zoom:1; margin:0 5px; font-size:14px; color:#333436}
+.vr_fen span{padding:3px 8px; border:1px solid #1d8bd8; zoom:1; background:#1d8bd8; margin:0 5px; font-size:14px; color:#fff}
+
+
+/*公共样式*/
+.public_btn {padding: 0 15px;height: 30px;line-height: 30px;margin-left: 10px;margin-bottom: 10px;float: left; cursor: pointer;border-radius: 10px;display: block;border: none;background: #1D8BD8;font-size: 14px;color: #FFF;margin-top:10px;}
+
+.lan {background: #1d8bd8;}
+.an_1 {margin-right: 10px;padding: 5px 30px;font-size: 18px;border-radius: 10px;color: #FFF;cursor: pointer; background: #8ec100;}
+.keybutton {float: left;margin-left: 90px;display: inline;}
+
+.require{
+    color: red;
+    float: left;
+}

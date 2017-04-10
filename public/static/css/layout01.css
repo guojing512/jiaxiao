@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*登录*/
+/*.vr_land{ width:100%; background:url(../images/land.jpg) no-repeat; height:490px; float:left; margin-top:24px;}*/
+.vr_land{ width:100%; background:#5353EA; height:490px; float:left; margin-top:24px;}
+.land_main{ width:1002px; height:auto; margin:0px auto;}
+.land_main div{ width:280px; height:352px; float:right; margin-top:70px; padding:0px 30px; font-size:14px; background:#FFF;}
+.land_main div h3{ line-height:68px; font-size:18px; float:left; width:100%; color:#333436;}
+.land_main div ul{ width:100%; float:left;}
+.land_main div ul li{ height:38px; float:left; border:1px solid #d4d4d4; margin-bottom:22px;}
+.land_main div ul li label{ background:#f8f8f8; float:left; height:38px; width:38px;}
+.land_main div ul li label img{ margin-left:10px; display:inline; margin-top:9px;}
+.land_main div ul li input{ color:#999999; line-height:38px; float:left; padding:0px 9px;}
+.land_main div ul li .land_in01{ width:220px;}
+.land_main div ul li .land_in02{ width:90px;}
+.land_main div ul a img{ float:left; margin-left:10px; display:inline;}
+.land_main div .land_in03{ width:278px; height:38px; text-align:center; float:left; background:#8ec100; border:1px solid #86b600; font-size:18px; color:#FFF; border-radius:5px;}
+.land_main div p{ width:100%; float:left; text-align:center; line-height:38px;}
+.land_main div p a{ color:#1d8bd8;}
+
+/*忘记密码*/
+.password_dq{ width:100%; height:58px; line-height:58px; float:left; background:#FFF; font-size:16px; color:#333436;}
+.password_dq p{ width:1002px; margin:0px auto;}
+.password_dq p a{ color:#333436;}
+.vr_password{ width:100%; background:#f1f1f1; padding:18px 0px;}
+
+.password_main{ width:1002px; margin:0 auto; min-height:430px; background:#FFF; padding:55px 0px;}
+.password_main p{ width:560px; height:auto; float:left; margin-left:240px; display:inline; color:#999999; line-height:32px; font-size:12px; margin-top:20px;}
+.password_main p label{ width:68px; height:32px; float:left; font-size:16px; color:#333436;}
+.password_main p input{ border:1px solid #d4d4d4; height:30px; line-height:30px; color:#333436; font-size:14px; padding:0px 10px; float:left; margin-right:10px; display:inline;}
+.password_main p .password_in01{ width:230px;}
+.password_main p .password_in02{ width:100px;}
+.password_main p .password_in03{ width:97px; height:33px; border:none; font-size:18px; color:#FFF; background:#8ec100; border-radius:12px;}
+.password_main p #mybtn{ width:110px; font-size:16px; color:#727272; height:32px;}
+
+
+.vr_an_1{ margin-right:10px; padding:5px 30px; font-size:18px; border-radius:10px; color:#FFF; cursor:pointer; background:#8ec100}
+.lan{background:#1d8bd8}
+
+/********弹层********/
+.vr_hei{width:100%; height:100%; position:fixed; left:0; top:0; display:none; z-index:9; background:url(../images/png.png) repeat; float:left}
+
+/*******添加成功层*******/
+.vr_tian{width:320px; height:150px; position:fixed; left:50%; top:50%; margin:-75px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10;}
+.vr_tian_{width:320px; height:150px; position:fixed; left:50%; top:50%; margin:-75px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10;}
+.vr_close{float:right; cursor:pointer;}
+.vr_tian_1{width:300px; padding:0 10px; line-height:45px; height:45px; overflow:hidden; float:left; text-align:center; font-size:18px; color:#333436}
+.vr_tian_2{width:100%; float:left; text-align:center; display:inline; margin-top:13px}
+
+.vr_xiu{width:320px; height:150px; position:fixed; left:50%; top:50%; margin:-75px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10;}
+.vr_tiann{width:320px; height:150px; position:fixed; left:50%; top:50%; margin:-75px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10;}
+
+
+
+/*账号信息*/
+.vr_biao a{ color:#333436;}
+.vr_keyg{ float:left; width:100%;margin-left:45px; display:inline; margin-top:20px;}
+.vr_keyg p{ margin-top:20px;  font-size:14px; color:#999999;float:left; width:100%; }
+.vr_keyg p input{ height:33px; line-height:33px; overflow:hidden; width:241px; padding:0 5px; margin:0 12px 0 7px; background:#fff;font-size:14px; color:#999999;display:inline; }
+.vr_keyg p textarea{ overflow:hidden; width:260px; height:80px; padding:0 5px; margin:0 12px 0 7px; background:#fff;font-size:14px; color:#999999; }
+.vr_keyg p select{ height:33px; line-height:33px; overflow:hidden; width:241px; padding:0 5px; margin:0 12px 0 7px; background:#fff;font-size:14px; color:#999999; }
+.vr_keyg .qian{height:33px; line-height:33px; overflow:hidden; font-size:16px; color:#333436; width:81px; text-align:right; float:left; margin-right:15px; display:inline;}
+.vr_keyg p b{ font-size:14px; color:#0f64a5; padding:0 5px; margin:0 12px 0 7px;}
+.zy_keybutton{ float:left; margin-left:103px; display:inline; margin-top:20px;}
+.zy_keybutton input{ width:97px; height:33px; overflow:hidden; text-align:center; font-size:18px; color:#ffffff; margin-right:20px; border-radius:14px; }
+.zy_keybutton .btn1{ background:#8ec100;}
+.zy_keybutton .btn2{ background:#1d8bd8;}
+
+.vr_keyg form label input{ float:left; width:10px;  margin:0px 8px;}
+.vr_keyg form label{ background:#fff; width:150px; height:34px; padding:5px 0; overflow:hidden; margin:0 5px; float:left;}
+ 

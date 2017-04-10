@@ -1,0 +1,6 @@
+/*
+	@Name: layer拓展样式
+*/
+body .layer_red .layui-layer-title{background:#FF4351; color:#fff; border: none;}
+body .layer_red .layui-layer-btn a{background:#FF4351; border:none;}
+body .layer_red .layui-layer-btn .layui-layer-btn1{background:#FF4351;}

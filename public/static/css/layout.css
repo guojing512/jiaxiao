@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+.vr_mian{ color: #FFF; overflow: hidden; width:100%; float:left;}
+table{border-right:1px solid #fff;border-bottom:1px solid #fff} 
+table td,table th{border-left:1px solid #fff;border-top:1px solid #fff} 
+
+
+/*********登陆后页面*******/
+.vr_dl_1{margin:30px 30px 0 30px;}
+.vr_dl_2{width:32%; float:left; display:inline; margin-right:2%; text-align:center; padding:28px 0; background:#FFF}
+.vr_dl_2 dt{width:100%; float:left; font-size:16px; color:#333436}
+.vr_dl_2 dt span{font-size:36px; color:#F00}
+.vr_dl_2 dd{width:100%; float:left; margin-top:20px}
+.vr_dl_2 dd a{padding:5px 15px; border-radius:5px; font-size:18px; color:#FFF}
+.vr_dl_2 dd a.lv{background:#8ec100}
+.vr_dl_2 dd a.lan{background:#1d8bd8}
+.vr_dl_2 dd a.hong{background:#ff0000}
+.bianju{margin-right:0}
+
+/*******设置信息费用******/
+.sy_zs_sz{width:100%; float:left}
+.sy_zs_sz_1{width:100%; float:left; line-height:34px; display:inline; margin-top:20px}
+.sy_zs_sz_1 dt{width:80px; font-size:16px; text-align:right; color:#333436; float:left}
+.sy_zs_sz_1 dd{float:left; width:90%; position:relative;}
+.vr_wen{width:15%; padding:0 10px; line-height:34px; height:34px; display:inline; margin-left:10px; background:#FFF; float:left; font-size:14px; color:#333333}
+
+.caidan{width:250px; float:left; display:none; position:absolute; left:10px; top:34px; z-index:99999;  background:#FFF; height:120px; overflow:auto;}
+.caidan li{ line-height:24px; height:24px; display:block; padding:0 10px; color:#333;}
+.caidan li:hover{background:#d2dee8}
+
+
+.sy_zs_sz_1 dd span{float:left; color:#999999; font-size:14px; display:inline; margin-left:10px}
+.vr_select{width:11%; padding-left:10px; line-height:34px; height:34px; background:#fff; font-size:14px; color:#333333; float:left; display:inline; margin-left:10px}
+.vr_an{ padding:0 15px; height:32px; border:1px solid #c2c8cc; background:url(../images/jian_03.jpg) repeat-x; font-size:18px; color:#666666; cursor:pointer; float:left; display:inline; margin-left:10px}
+.sy_zs_sz_1 dd p{width:100%; float:left; display:inline; margin:5px 0 0 10px; font-size:14px; color:#333333}
+.sy_zs_sz_1 dd p label{padding-right:10px}
+.vr_yu_1{float:left; display:inline; margin:20px 0 0 90px}
+.vr_an_1{ margin-right:10px; padding:5px 30px; font-size:18px; border-radius:10px; color:#FFF; cursor:pointer; background:#8ec100}
+.vr_an_11{ margin-right:10px; padding:5px 14px; font-size:18px; border-radius:10px; color:#FFF; cursor:pointer; background:#8ec100}
+.lan{background:#1d8bd8}
+
+/********弹层********/
+.vr_hei{width:100%; height:100%; position:fixed; left:0; top:0; display:none; z-index:9; background:url(../images/png.png) repeat; float:left}
+
+/*******添加成功层*******/
+.vr_tian{width:320px; height:150px; position:fixed; left:50%; top:50%; margin:-75px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10;}
+.vr_close{float:right; cursor:pointer;}
+.vr_tian_1{width:300px; padding:0 10px; line-height:45px; height:45px; overflow:hidden; float:left; text-align:center; font-size:18px; color:#333436}
+.vr_tian_2{width:100%; float:left; text-align:center; display:inline; margin-top:13px}
+
+.vr_xiu{width:320px; height:150px; position:fixed; left:50%; top:50%; margin:-75px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10;}
+.vr_tiann{width:320px; height:150px; position:fixed; left:50%; top:50%; margin:-75px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10;}
+
+
+/*******设置信息费用列表******/
+.vr_szxx{width:100%; float:left}
+.vr_szxx td,.vr_szxx th{padding:0 10px;}
+.vr_szxx td{font-size:14px; color:#333436}
+.vr_szxx th{font-size:18px; background:#e3e4e4; color:#333436; font-weight:normal;}
+.vr_szxx td a{color:#ff0000}
+.vr_szxx td a.lan_1{color:#0f64a5}
+.vr_szxx td a.lv{color:#8ec100}
+.vr_szxx td.lan_1{color:#0f64a5}
+.vr_szxx td.lv_1{color:#8ec100}
+.vr_szxx td.hui_1{color:#999999}
+.vr_szxx td a.shen{padding:5px 20px; border-radius:10px; background:#1d8bd8; color:#FFF}
+
+.vr_wen_1{width:440px; padding:0 10px; line-height:34px; height:102px; display:inline; margin-left:10px; background:#FFF; float:left; font-size:14px; color:#333333}
+
+
+/******充值明细********/
+.vr_mu{width:100%; float:left; line-height:34px; margin-bottom:20px;}
+.vr_mu span{float:left; font-size:18px; color:#333436}
+.vr_mu span.ju{margin-left:1.5%}
+.vr_mu input.ju{margin-left:1.5%}
+
+
+/********微信-添加投放*******/
+.sy_zs_sz_2{width:100%; float:left; line-height:34px; display:inline; margin-top:20px}
+.sy_zs_sz_2 dt{width:100px; font-size:16px; text-align:right; color:#333436; float:left}
+.sy_zs_sz_2 dd{float:left; position:relative;}
+.sy_zs_sz_2 dd span{float:left; color:#999999; font-size:14px; display:inline; margin-left:10px}
+.vr_yu_2{float:left; display:inline; margin:20px 0 0 110px; padding-bottom:30px;}
+.sy_zs_wx_mu{float:left; width:340px; padding:10px 15px; border:1px solid #d8d8d8; background:#f6f6f6; display:inline; margin:0 0 0 10px;}
+.sy_zs_wx_mu li{width:100%; float:left; line-height:30px; font-size:14px; color:#333436}
+.sy_zs_wx_mu li samp{font-family:"微软雅黑"; float:left; text-align:right; width:68px;}
+.sy_zs_wx_mu li label{padding-left:25px; width:50px; float:left}
+
+input.w340{ float:left; width:320px; height:30px; line-height:30px; border:1px solid #e7e7eb; color:#888; padding:0 10px; margin-left:10px;}
+.tjsc{width:96px; height:30px; border:1px solid #c2c8cc; text-align:center; background:url(../images/jian_03.jpg) repeat-x; font-size:18px; color:#666666; cursor:pointer; float:left; display:inline; margin-left:10px}
+input.file{
+	float:left;
+    vertical-align:middle;
+    position: absolute;
+    left:363px;
+    filter:alpha(opacity=0);
+    opacity:0;
+	z-index:1;
+	width:96px;
+	height:32px;
+}
+.vr_wen_2{width:12%; padding:0 10px; line-height:34px; height:34px; display:inline; margin-left:10px; background:#FFF; float:left; font-size:14px; color:#333333}
+.vr_xt{width:320px; height:auto; position:fixed; left:50%; top:50%; margin:-90px 0 0 -160px;  display:none; background:#FFF; float:left; z-index:10; padding-bottom:15px;}
+.vr_xt_1{width:300px; padding:0 10px; line-height:36px; height:auto; overflow:hidden; float:left; text-align:center; font-size:18px; color:#333436}
+.vr_xt_1 p textarea{ border:1px solid #ccc; padding:8px; margin-left:5px; display:inline; width:80%; height:80px;}
