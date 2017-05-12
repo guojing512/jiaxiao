@@ -1,4 +1,4 @@
-  <div class="vr_logo"><a href="{{url('index')}}"><img src="{{@asset('static/images/logo.png')}}" /></a></div>
+  <div class="vr_logo"><a href="{{url('manage/index')}}"><img src="{{@asset('static/images/logo.png')}}" /></a></div>
   <div class="vr_dl" style="display:inline;">
     <h2 style="float:left;width:auto;">
       <a href="javascript:;">
@@ -11,7 +11,7 @@
       </dt>
     </dl>
     <h3 style="width:100px;float:left;display:inline;margin-left: 15px;margin-top: 5px;">
-      <a href="{{url('logout')}}">
+      <a href="{{url('manage/logout')}}">
         <img src="{{@asset('static/images/logout.jpg')}}"/>
       </a>
     </h3>

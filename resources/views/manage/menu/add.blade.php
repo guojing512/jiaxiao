@@ -5,7 +5,7 @@
     .isshow_input .input{width:22px;height:15px;}
 </style>
 <div class="vr_keyg">
-<form method="post" action="{{url('menu/add')}}">
+<form method="post" action="{{url('manage/menu/add')}}">
     <p><span class="qian">父级菜单：</span>
         <select name="parent_id" style="width: 252px;height: 35px;margin-left: 7px;">
             <option value="0">顶级菜单</option>

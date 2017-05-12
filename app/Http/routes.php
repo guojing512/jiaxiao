@@ -11,27 +11,86 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Event::listen('illuminate.query',function($query){
+//     echo $query;
+//     echo "<br/>";
+// });
+
+Route::any('/', ['uses'=>'Home\IndexController@index']);
 //验证码
 Route::get('captcha', 'KitController@captcha');
 
-Route::any('test', ['uses'=>'TestController@index']);
+Route::get('test/{action}', function(App\Http\Controllers\TestController $index, $action){
+    return $index->$action();
+});
 
 //api
-Route::group(['prefix'=>'','namespace'=>'Api','domain' => 'api.jiaxiao.com'], function () {
+Route::group(['prefix'=>'api','namespace'=>'Api'], function () {
     Route::post('setRunLog', ['uses'=>'DataMachineRunLogController@setRunLog']);
+    Route::post('getMachineByMac', ['uses'=>'MachineController@getMachineByMac']);
     Route::get('index', ['uses'=>'DataMachineRunLogController@index']);
 });
 
 //前台
-Route::group(['prefix'=>'','namespace'=>'Home','domain' => 'qt.jiaxiao.com'], function () {
-    Route::any('index', ['uses'=>'IndexController@index']);
+Route::group(['prefix'=>'','namespace'=>'Home','domain' => ''], function () {
+    Route::get('index', ['uses'=>'IndexController@index']);
+    Route::get('login', ['uses'=>'LoginController@login']);
+    Route::post('login', ['uses'=>'LoginController@doLogin']);
+    Route::get('logout', ['uses'=>'LoginController@logout']);
+    Route::post('loginByCard', ['uses'=>'LoginController@doLoginByCard']);
+    Route::any('loginPhone', ['uses'=>'LoginController@loginByPhone']);
+    Route::get('course', ['uses'=>'SubjectCourse@index']);
+    Route::get('course/detail/{id}', ['uses'=>'SubjectCourse@detail']);
+
+    Route::any('noCard', ['uses'=>'NoCardQueryController@index']);
+    Route::get('user', ['uses'=>'UserController@index']);
+    Route::get('user/helpShangji', ['uses'=>'UserController@helpShangji']);
+    Route::get('user/helpShebei', ['uses'=>'UserController@helpShebei']);
+    Route::get('user/helpXunlian', ['uses'=>'UserController@helpXunlian']);
+    Route::get('user/helpQita', ['uses'=>'UserController@helpQita']);
+    Route::post('user/getRemainingTime', ['uses'=>'UserController@getRemainingTime']);
+
+    Route::get('main', ['uses'=>'LoginController@main']);
+    Route::get('admin', ['uses'=>'AdminController@index']);
+    Route::post('admin/getCardNum', ['uses'=>'AdminController@getCardNum']);
+    Route::any('admin/register', ['uses'=>'AdminController@register']);
+    Route::any('admin/fillCard', ['uses'=>'AdminController@fillCard']);
+    Route::post('admin/delUser', ['uses'=>'AdminController@delUser']);
+    Route::any('admin/editUser/{id}', ['uses'=>'AdminController@editUser']);
+    Route::any('admin/queryLength', ['uses'=>'AdminController@queryLength']);
+    Route::any('admin/repair', ['uses'=>'AdminController@repair']);
+
+
+    Route::get('admin/statistics', ['uses'=>'AdminStatisticsController@index']);
+    Route::any('admin/statistics/userList', ['uses'=>'AdminStatisticsController@userList']);
+    Route::any('admin/statistics/subject2List', ['uses'=>'AdminStatisticsController@subject2List']);
+    Route::any('admin/statistics/subject3List', ['uses'=>'AdminStatisticsController@subject3List']);
+
+    Route::any('admin/register', ['uses'=>'AdminController@register']);
+
+    //充值相关
+    Route::any('recharge', ['uses'=>'RechargeController@index']);//用户充值显示页面
+    Route::any('rechQrCode', ['uses'=>'RechargeController@createQrCode']);//用户创建订单
+    Route::any('rechStatue', ['uses'=>'RechargeController@rechStatus']);//查询订单状态
+
+    Route::any('rechAdmin', ['uses'=>'RechargeAdminController@index']);//管理员充值显示页面
+    Route::any('rechQrCodeAdmin', ['uses'=>'RechargeAdminController@createQrCode']);//管理员创建订单
+    Route::any('rechStatueAdmin', ['uses'=>'RechargeAdminController@rechStatus']);//查询订单状态
+
+    Route::any('aliRecharge', ['uses'=>'PayCallbackController@aliRecharge']);//充值回调
+    Route::any('wxRecharge', ['uses'=>'PayCallbackController@wxRecharge']);//充值回调
+    Route::any('aliRechAdmin', ['uses'=>'PayCallbackController@aliRechAdmin']);//管理员充值回调
+    Route::any('wxRechAdmin', ['uses'=>'PayCallbackController@wxRechAdmin']);//管理员充值回调
+
+    
 });
 
+
 //系统后台
-Route::group(['prefix'=>'','namespace'=>'Manage','domain' => 'mp.jiaxiao.com'], function () {
+Route::group(['prefix'=>'manage','namespace'=>'Manage','domain' => ''], function () {
+
+    Route::get('/',function(){return 'manage';});
+
     //后台主页
     Route::any('index', ['uses'=>'IndexController@index']);
 
@@ -78,7 +137,6 @@ Route::group(['prefix'=>'','namespace'=>'Manage','domain' => 'mp.jiaxiao.com'], 
     Route::get('machine/edit', ['uses'=>'MachineController@edit']);
     Route::post('machine/edit', ['uses'=>'MachineController@doEdit']);
     Route::post('machine/editStatus', ['uses'=>'MachineController@editStatus']);
-
 
     //科目管理
     Route::any('subject/index', ['uses'=>'SubjectController@index']);

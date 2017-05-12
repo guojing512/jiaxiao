@@ -1,0 +1,18 @@
+Time：2017-05-11 10:06:55
+Data:  
+#*#*#*#
+'Argument 1 passed to Illuminate\\Database\\Grammar::columnize() must be of the type array, string given, called in D:\\wnmp\\wwwroot\\DrivingSchool\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Grammars\\Grammar.php on line 108 and defined'
+#*#*#*#
+
+Time：2017-05-11 10:21:45
+Data:  
+#*#*#*#
+'SQLSTATE[42S22]: Column not found: 1054 Unknown column \'user_id1\' in \'where clause\' (SQL: select `remaining_time` from `ds_user_ext` where `user_id1` = 143 limit 1)'
+#*#*#*#
+
+Time：2017-05-11 15:27:52
+Data:  
+#*#*#*#
+'此用户没有查询权限'
+#*#*#*#
+

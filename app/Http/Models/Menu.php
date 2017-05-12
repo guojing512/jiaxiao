@@ -46,7 +46,7 @@ class Menu extends Model
 
 		// 获取改用户组所有拥有权限的一级菜单
 		$menu_one = DB::table('menu')
-			->whereRaw("parent_id = 0 and id in ($menu_ids_str)")
+			->whereRaw("parent_id = 33 and id in ($menu_ids_str)")
 			->orderBy('sort_num','desc')
 			->get();
 			;

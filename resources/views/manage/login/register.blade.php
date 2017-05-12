@@ -21,15 +21,20 @@
           <input type="text" name="phone_num" value="{{ old('phone_num') }}" placeholder="请输入手机号" />
           {{$errors->first('phone_num')}}
         </p>
-        <p><span  class="qian">卡片id</span>
-          <i class="require">*</i>
-          <input type="text" name="card_id" value="{{ old('card_id') }}" placeholder="请输入卡片id" />
-          {{$errors->first('card_id')}}
+        {{--<p><span  class="qian">卡片id</span>--}}
+          {{--<i class="require">*</i>--}}
+          {{--<input type="text" name="card_id" value="{{ old('card_id') }}" placeholder="请输入卡片id" />--}}
+          {{--{{$errors->first('card_id')}}--}}
+        {{--</p>--}}
+        <p><span class="qian">性别</span>
+          <span class="isshow_input"><input class="input" name="sex" type="radio" value="1" @if(!old('sex') || old('sex') == '1') checked="checked" @endif />男</span>
+          <span class="isshow_input"><input class="input" name="sex" type="radio" value="2" @if(old('sex') == '2') checked="checked" @endif />女</span>
+          <br/>
         </p>
         <p><span class="qian">证件类型</span>
-          <span class="isshow_input"><input class="input" name="identity_type" type="radio" value="1" checked="checked"/>身份证</span>
-          <span class="isshow_input"><input class="input" name="identity_type" type="radio" value="2"/>军官证</span>
-          <span class="isshow_input"><input class="input" name="identity_type" type="radio" value="3"/>护照</span>
+          <span class="isshow_input"><input class="input" name="identity_type" type="radio" value="1" @if(!old('identity_type') || old('identity_type') == '1') checked="checked" @endif />身份证</span>
+          <span class="isshow_input"><input class="input" name="identity_type" type="radio" value="2" @if(old('identity_type') == '2') checked="checked" @endif />军官证</span>
+          <span class="isshow_input"><input class="input" name="identity_type" type="radio" value="3" @if(old('identity_type') == '3') checked="checked" @endif />护照</span>
           <br/>
         </p>
         <p><span  class="qian">证件号码</span>

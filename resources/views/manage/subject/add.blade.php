@@ -5,7 +5,7 @@
     .isshow_input .input{width:22px;height:15px;}
 </style>
 <div class="vr_keyg">
-<form method="post" action="{{url('subject/add')}}">
+<form method="post" action="{{url('manage/subject/add')}}">
     <p><span class="qian">科目名称：</span>
         <input type="text" name="subject_name" value="{{old('subject_name')}}" />
         {{$errors->first('subject_name')}}</p>

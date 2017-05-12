@@ -75,11 +75,11 @@
           function getCityOption(province_id){
               $.ajax({
                   type: "POST",
-                  url:'{{url('company/getCityOption')}}',
+                  url:'{{url('manage/company/getCityOption')}}',
                   data: "parent_id="+province_id,
                   dataType:'json',
                   success: function(serverJson){
-                      if(serverJson.status){
+                      if(serverJson.flag == 'success'){
                           $("select[name='city_id'] option").remove();
                           $("select[name='city_id']").append("<option value=''>----市----</option>");
                           $("select[name='county_id'] option").remove();
@@ -91,6 +91,8 @@
                           $("select[name='city_id']").bind("change",function(){
                               setCounty(this);
                           });
+                      }else{
+                          alert(serverJson.msg);
                       }
 
                   }
@@ -100,17 +102,19 @@
               $city_id = $(o).val();
               $.ajax({
                   type: "POST",
-                  url:'{{url('company/getCityOption')}}',
+                  url:'{{url('manage/company/getCityOption')}}',
                   data: "parent_id="+$city_id,
                   dataType:'json',
                   success: function(serverJson){
-                      if(serverJson.status){
+                      if(serverJson.flag == 'success'){
                           $("select[name='county_id'] option").remove();
                           $("select[name='county_id']").append("<option value=''>----区/县----</option>");
                           for(key in serverJson.data){
                               var county = serverJson.data[key];
                               $("select[name='county_id']").append("<option value='"+county.id+"'>"+county.city_name+"</option>");
                           }
+                      }else{
+                          alert(serverJson.msg);
                       }
 
                   }

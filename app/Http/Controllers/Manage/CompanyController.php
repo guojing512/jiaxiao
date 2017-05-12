@@ -57,7 +57,7 @@ class CompanyController extends BaseController
         $company = new Company($input);
         $result = $company->save();
         if($result){
-            return redirect('company')->with('success','更新成功');
+            return redirect('manage/company')->with('success','更新成功');
         }else{
             return redirect()->with('error','更新失败')->back();
         }
@@ -99,7 +99,7 @@ class CompanyController extends BaseController
         $company->is_del = $input['is_del'];
         $result = $company->update();
         if($result){
-            return redirect('company')->with('success','更新成功');
+            return redirect('manage/company')->with('success','更新成功');
         }else{
             return redirect()->with('error','更新失败')->back();
         }
@@ -113,10 +113,11 @@ class CompanyController extends BaseController
     {
         $parent_id = Input::get('parent_id');
         $city = City::where('flag',1)->where('parent_id',$parent_id)->get()->toArray();
+        ;
         if(!empty($city)){
-            return response()->json(['status' => true , 'msg' => 'ok','data'=>$city]);
+            return response()->json(returnRes('success','ok',$city));
         }else{
-            return response()->json(['status' => false, 'msg' => 'error','data'=>$city]);
+            return response()->json(returnRes('error','error',$city));
         }
     }
 
@@ -131,9 +132,9 @@ class CompanyController extends BaseController
         $company->is_del = $input['status'];
         $result = $company->update();
         if($result){
-            return response()->json(['status'=>true,'msg'=>'ok']);
+            return response()->json(returnRes('success','ok'));
         }else{
-            return response()->json(['status'=>false,'msg'=>'error']);
+            return response()->json(returnRes('error','error'));
         }
     }
 }

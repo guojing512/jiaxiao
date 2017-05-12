@@ -91,7 +91,7 @@ class CourseController extends BaseController
 
 			$res = $this->_model->save();//返回布尔值
 			if($res){
-				return redirect('course/index')->with('success','添加成功');
+				return redirect('manage/course/index')->with('success','添加成功');
 			}else{
 				return redirect()->back()->with('error','添加失败');
 			}
@@ -161,6 +161,7 @@ class CourseController extends BaseController
 			}
 
 			if(!empty($pic_detail)){
+				$upload = new Upload();
 				$res = $upload->uploadOne($pic_detail);
 				if($res['flag'] != 'success'){
 					return redirect()->back()->with('error',$res['msg'])->withErrors($validator)->withInput();;
@@ -172,7 +173,7 @@ class CourseController extends BaseController
 			$res = $model->save();//返回布尔值
 
 			if($res){
-				return redirect('course/index')->with('success','更新成功');
+				return redirect('manage/course/index')->with('success','更新成功');
 			}else{
 				return redirect()->back()->with('error','更新失败');
 			}

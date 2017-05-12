@@ -74,7 +74,7 @@
 
               //console.log(nodes);
 
-              $.post("{{url('group/setRole')}}", {menu_ids:nodes,group_id:{{$group_id}}},
+              $.post("{{url('manage/group/setRole')}}", {menu_ids:nodes,group_id:{{$group_id}}},
                 function(data){
                     console.log(data);
                     if(data=='success'){

@@ -8,9 +8,9 @@
 </style>
 
 <div class="vr_szxx">
-    <a href="{{url('group/add')}}" class="public_btn">添加用户组</a>
+    <a href="{{url('manage/group/add')}}" class="public_btn">添加用户组</a>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-     <form action="{{url('group/rank')}}" method="post">
+     <form action="{{url('manage/group/rank')}}" method="post">
         <tr>
             <th width="10%" align="center" valign="middle">ID</th>
             <th width="12%" align="center" valign="middle">名称</th>
@@ -29,10 +29,10 @@
                     <?php 
                         //if( ($v['id'] == ADMIN_GROUP_ID && session('user_id') == ADMIN_USER_ID) or $v['id'] != ADMIN_GROUP_ID  ){
                         if(1){    
-                            echo '<a href="'. url('group/edit') .'?id='.$v['id'].'">修改</a>';
+                            echo '<a href="'. url('manage/group/edit') .'?id='.$v['id'].'">修改</a>';
                             echo "&nbsp;&nbsp;|&nbsp;&nbsp;";
                             echo '<a href="javascript:;" class="set_role" title="设置【'. $v['group_name'] .'】所属用户的权限"';
-                            echo 'myhref="'. url('group/setRole') .'?group_id='.$v['id'].'">权限</a>';
+                            echo 'myhref="'. url('manage/group/setRole') .'?group_id='.$v['id'].'">权限</a>';
                         }else{
                             echo '<span>修改</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span>权限</span>';
                         }

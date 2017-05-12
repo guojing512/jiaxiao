@@ -58,7 +58,7 @@ class MachineController extends BaseController
         $machine = new Machine($input);
         $result = $machine->save();
         if($result){
-            return redirect('machine')->with('success','更新成功');
+            return redirect('manage/machine')->with('success','更新成功');
         }else{
             return redirect()->with('error','更新失败')->back();
         }
@@ -94,7 +94,7 @@ class MachineController extends BaseController
         $machine->is_del = $input['is_del'];
         $result = $machine->update();
         if($result){
-            return redirect('machine')->with('success','更新成功');
+            return redirect('manage/machine')->with('success','更新成功');
         }else{
             return redirect()->with('error','更新失败')->back();
         }
@@ -111,9 +111,9 @@ class MachineController extends BaseController
         $machine->is_del = $input['status'];
         $result = $machine->update();
         if($result){
-            return response()->json(['status'=>true,'msg'=>'ok']);
+            return response()->json(returnRes('success','ok'));
         }else{
-            return response()->json(['status'=>false,'msg'=>'error']);
+            return response()->json(returnRes('error','error'));
         }
     }
 }

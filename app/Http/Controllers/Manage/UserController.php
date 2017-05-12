@@ -55,7 +55,7 @@ class UserController extends BaseController
         $user->user_status = $input['user_status'];
         $result = $user->update();
         if($result){
-            return redirect('/index');
+            return redirect('manage//index');
         }
     }
 
@@ -66,11 +66,10 @@ class UserController extends BaseController
         $user->user_status = $input['user_status'];
         $result = $user->update();
         if($result){
-            $return_arr = ['status'=>true,'user_status'=>$input['user_status'],'msg'=>'ok'];
+            return response()->json(returnRes('success','ok'));
         }else{
-            $return_arr = ['status'=>false,'user_status'=>$input['user_status'],'msg'=>'error'];
+            return response()->json(returnRes('error','error'));
         }
-        echo json_encode($return_arr);
     }
 
 }

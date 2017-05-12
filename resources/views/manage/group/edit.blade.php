@@ -4,7 +4,7 @@
     .isshow_input .input{width:22px;height:15px;}
 </style>
 <div class="vr_keyg">
-<form method="post" action="{{url('group/edit')}}">
+<form method="post" action="{{url('manage/group/edit')}}">
     <p><span class="qian">组名称：</span>
         <input type="text" name="group_name" value="{{old('group_name')?old('group_name'):$info['group_name']}}"/>
         {{$errors->first('group_name')}}</p>

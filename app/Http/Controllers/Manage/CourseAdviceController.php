@@ -60,7 +60,7 @@ class CourseAdviceController extends BaseController
         $courseAdvice = new CourseAdvice($input);
         $result = $courseAdvice->save();
         if($result){
-            return redirect('courseAdvice')->with('success','更新成功');
+            return redirect('manage/courseAdvice')->with('success','更新成功');
         }else{
             return redirect()->with('error','更新失败')->back();
         }
@@ -96,7 +96,7 @@ class CourseAdviceController extends BaseController
         $courseAdvice->sort_num = $input['sort_num'];
         $result = $courseAdvice->update();
         if($result){
-            return redirect('courseAdvice')->with('success','更新成功');
+            return redirect('manage/courseAdvice')->with('success','更新成功');
         }else{
             return redirect()->with('error','更新失败')->back();
         }

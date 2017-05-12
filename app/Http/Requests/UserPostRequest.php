@@ -29,9 +29,7 @@ class UserPostRequest extends Request
         return [
             'user_name' => 'required|max:20|alpha_dash|unique:'.$tableName.',user_name,'.$id,
             'real_name' => 'required',
-            'phone_num' => 'required',
-            'phone_num' => 'regex:/^1[34578][0-9]{9}$/',
-            'phone_num' => 'unique:'.$tableName.',phone_num,'.$id,
+            'phone_num' => 'required|regex:/^1[34578][0-9]{9}$/|unique:'.$tableName.',phone_num,'.$id,
             'identity_num' => 'required|unique:'.$tableName.',identity_num,'.$id,
             'company_id' => 'required',
             'group_id' => 'required'

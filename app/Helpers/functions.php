@@ -129,11 +129,31 @@ function random($length, $chars = '0123456789') {
 
 /*
     返回结果
-    flag作为标识success or error
+    $param $flag作为标识值只能为success or error
+    $data = array(
+       'rows'=>,//影响的行数 
+    )
 
 */
 function returnRes($flag, $msg, $data = array()) {
+
+    if($flag == 'error'){
+        \App\Http\Common\Log::write($msg,'return');
+    }
+
     return array('flag' => $flag, 'msg' => $msg, 'data' => $data);
+}
+
+/*
+ * model 添加字段验证
+ * return boolean;
+ */
+function checkData($fiedls = array(), $data = array()) {
+    foreach ($fiedls as $k => $v) {
+        if (!isset($data[$k]) || !empty($data[$k]) !== $v)
+            return false;
+    }
+    return true;
 }
 
 /*
@@ -153,4 +173,102 @@ function getTransNum() {
     return $numQ . $numZ . $numH;
 }
 
+/*
+ * 获取卡片id 24位 日期6位+10位当前时间戳+8位随机数
+ * return string
+ */
 
+function getCardNumber(){
+    $time = time();
+    $numQ = date('ymd', $time);
+    $numZ = mt_rand(10000000, 99999999);
+    return $numQ . time() . $numZ;
+}
+
+/*
+    根据性别返回称呼
+    @parms string $name真实姓名  
+    @parms int $sex性别，1为男 2为女
+    @return string  
+**/
+function getNickname($name,$sex){
+    
+    if(strlen($name) < 1){
+        return false;
+    }
+
+    if($sex != '1' && $sex != '2'){
+        return false;
+    }
+    return $sex==1?mb_substr($name,0,1).'先生':mb_substr($name,0,1).'女士';
+
+}
+
+/*
+    证件号替换
+    @params string $str证件号码
+*/
+function IDNumReplace($str,$mode = 1){
+    
+    $input = '*';
+    $num = 8;
+
+    if($mode = 1){
+        return mb_substr($str, 0,3).str_repeat($input,$num).mb_substr($str, -3,3);
+    }
+    return false;
+
+}
+
+/*
+    获取友好时间显示
+    @params int $second时间秒
+    @params $mode 当是h返回小时 当是m时返回分钟 【默认为false，友好返回带单位的时间，暂时不写】
+    @params $roundingMode 取整方式，f为向下取整 c为向上取整 【默认为f，】
+*/
+function getFriendTime($second,$mode = 'm',$roundingMode = 'f'){
+    if($second <= 0){
+        return 0;
+    }
+
+    if($mode == 'friend'){
+        if($second >= 3600){
+            $s = $second%3600;
+            if($s != 0){
+                return floor($second/3600).'小时'.floor($s/60).'分钟';
+            }
+            return floor($second/3600).'小时';
+        }else if($second >= 60 && $second < 3600){
+            return floor($second/60).'分钟';
+        }else{
+            return $second.'秒';
+        }
+
+    }
+
+    if($roundingMode == "f"){
+        if($mode == 'm'){
+            return floor($second/60);//舍零取整
+        }
+        if($mode == 'h'){
+            return floor($second/3600);//舍零取整
+        }
+    }
+    if($roundingMode == "c"){
+        if($mode == 'm'){
+            return ceil($second/60);//舍零取整
+        }
+        if($mode == 'h'){
+            return ceil($second/3600);//舍零取整
+        }
+    }
+    return false;
+}
+/*
+    生成二维码
+*/
+function create_erweima($content,$width = '360',$height = '360') {
+    $content = urlencode($content);
+    $image = '<img src="http://pan.baidu.com/share/qrcode?w='.$width.'&amp;h='.$height.'&amp;url='.$content.'" />';
+    return $image;
+}

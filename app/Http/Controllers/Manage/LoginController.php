@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Models\AdminUser;
+use App\Http\Models\AdminUserLog;
 use App\Http\Models\Company;
 use App\Http\Models\Group;
 use App\Http\Requests\LoginPostRequest;
@@ -16,38 +17,39 @@ use Illuminate\Support\Facades\Input;
 class LoginController extends BaseController
 {
 
-	public function index(Request $request)
-	{
+    public function index(Request $request)
+    {
         return view('manage.login.index');
-	}
+    }
 
-	public function login(LoginPostRequest $request){
-        if($input = Input::all()){
-            if(isset($input['username']) && !empty($input['username']) && isset($input['password']) && !empty($input['password'])){
-                $user = AdminUser::whereUser_name(Input::get('username'))->firstOrFail();
-                if ($user->password != password($input['password'],$user->password_token)) {
-                    $validator = Validator::make($request->all(), []);
-                    $validator->after(function($validator) {
-                        $validator->errors()->add('password', '密码错误');
-                    });
-                    if ($validator->fails()) {
-                        $this->throwValidationException($request, $validator);
-                    }
-                }else{
-                    session(['user'=>$user->getAttributes()]);
-                    //session()->put('user',$user->getAttributes());
-                    return redirect('/index');
-                }
+    public function login(LoginPostRequest $request){
+        $adminUser = new AdminUser();
+        $loginUser = $adminUser->loginByUserName();
+        if($loginUser['flag'] == "error"){
+            $validator = Validator::make($request->all(), []);
+            $validator->after(function($validator) use($loginUser) {
+                $validator->errors()->add($loginUser['data']['errorFiled'], $loginUser['msg']);
+            });
+            if ($validator->fails()) {
+                $this->throwValidationException($request, $validator);
             }
-
-        }else {
-            return view('admin.login');
+        }else{
+            $user = $loginUser['data'];
+            $adminUserLog = new AdminUserLog();
+            $saveAdminUserLog = $adminUserLog->loginAdd($user,$request->getClientIp());
+            if($saveAdminUserLog){
+                returnRes('success','登陆成功');
+                session(['user'=>$user->getAttributes()]);
+                return redirect('manage/index');
+            }else{
+                return redirect()->with('error','未知错误')->back();
+            }
         }
     }
 
     public function logout(){
         session(['user'=>null]);
-        return redirect('/login');
+        return redirect('manage/login');
     }
 
     public function register(){
@@ -58,24 +60,12 @@ class LoginController extends BaseController
 
     public function doRegister(RegisterPostRequest $request)
     {
-
-        $input = Input::all();
-        $password_token = create_randomstr();
         $user = new AdminUser();
-        $user->user_name = $input['user_name'];
-        $user->real_name = $input['real_name'];
-        $user->phone_num = $input['phone_num'];
-        $user->card_id = $input['card_id'];
-        $user->identity_type = $input['identity_type'];
-        $user->identity_num = $input['identity_num'];
-        $user->company_id = $input['company_id'];
-        $user->group_id = $input['group_id'];
-        $user->password_token = $password_token;
-        $user->password = password($input['password'],$password_token);
-        $user->user_name = $input['user_name'];
-        $result = $user->save();
-        if($result){
-            return redirect('/index');
+        $result = $user->register();
+        if($result && $result['status']){
+            return redirect('manage/index')->with('success','添加成功');
+        }else{
+            return redirect()->with('error','添加失败')->back();
         }
     }
 }

@@ -64,7 +64,7 @@
           function getCityOption(province_id){
               $.ajax({
                   type: "POST",
-                  url:'{{url('company/getCityOption')}}',
+                  url:'{{url('manage/company/getCityOption')}}',
                   data: "parent_id="+province_id,
                   dataType:'json',
                   success: function(serverJson){
@@ -89,7 +89,7 @@
               $city_id = $(o).val();
               $.ajax({
                   type: "POST",
-                  url:'{{url('company/getCityOption')}}',
+                  url:'{{url('manage/company/getCityOption')}}',
                   data: "parent_id="+$city_id,
                   dataType:'json',
                   success: function(serverJson){

@@ -6,14 +6,14 @@
 
 </style>
 <div class="vr_keyg">
-<form method="post" action="{{url('course/edit')}}"  enctype="multipart/form-data">
+<form method="post" action="{{url('manage/course/edit')}}"  enctype="multipart/form-data">
     <p><span class="qian">课程名称：</span>
         <input type="text" name="course_name" value="{{old('course_name')?old('course_name'):$info['course_name']}}" />
         {{$errors->first('course_name')}}
     </p>
     <p>
         <span class="qian">所属科目：</span>
-        <select name="subject_id">
+        <select name="subject_id" id="id_subject">
             <option value="0">==请选择==</option>
             @foreach($list_subject as $v)
             <option value="{{$v['id']}}" {{$info['subject_id'] == $v['id']?'selected':''}}>{{$v['subject_name']}}</option>
@@ -21,7 +21,7 @@
         </select>
         {{$errors->first('subject_id')}}
     </p>
-    <p>
+    <p id="id_score" style="display:none">
         <span class="qian">分数：</span>
         <input type="text" name="score" value="{{old('score')?old('score'):$info['score']}}" />
         {{$errors->first('score')}}
@@ -33,7 +33,7 @@
     </p>
     <p>
         <span class="qian">详情图：</span>
-        <input type="file" name="pic_detail" /><img src="{{$info['pic_cover']}}" width="100" height="100" />
+        <input type="file" name="pic_detail" /><img src="{{$info['pic_detail']}}" width="100" height="100" />
         {{$errors->first('pic_detail')}}
     </p>
     <p style="height:auto;">
@@ -49,12 +49,27 @@
 </div>
 
 <!-- 编辑器控制开始 -->
-<script type="text/javascript" charset="utf-8" src="/plugins/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="/plugins/ueditor/ueditor.all.min.js"> </script>
-<script type="text/javascript" charset="utf-8" src="/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{@asset('plugins/ueditor/ueditor.config.js')}}"></script>
+<script type="text/javascript" charset="utf-8" src="{{@asset('plugins/ueditor/ueditor.all.min.js')}}"> </script>
+<script type="text/javascript" charset="utf-8" src="{{@asset('plugins/ueditor/lang/zh-cn/zh-cn.js')}}"></script>
 <script type="text/javascript">
     var ue = UE.getEditor('editor',{textarea:'cms_content'});
 </script>
 <!-- 编辑器控制结束 -->
-
+<script type="text/javascript">
+    $(function(){
+        if($("#id_subject").val() == '3'){
+            $("#id_score").css({"display":"block"});
+         }else{
+            $("#id_score").css({"display":"none"});
+         }
+        $("#id_subject").on("change",function(){
+             if($(this).val() == '3'){
+                $("#id_score").css({"display":"block"});
+             }else{
+                $("#id_score").css({"display":"none"});
+             }
+        });
+    });
+</script>
 @stop

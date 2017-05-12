@@ -63,7 +63,7 @@ class GroupController extends BaseController
 
 			if($res)
 			{
-				return redirect('group')->with('success','添加成功');
+				return redirect('manage/group')->with('success','添加成功');
 			}
 			else
 			{
@@ -113,7 +113,7 @@ class GroupController extends BaseController
 
 			if($res)
 			{
-				return redirect('group')->with('success','更新成功');
+				return redirect('manage/group')->with('success','更新成功');
 			}
 			else
 			{

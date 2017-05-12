@@ -99,7 +99,7 @@
                     data: this.callApi.shift(),
                     dataType:'json',
                     success: function(jsonData){
-                        console.log(s_run);
+                        console.log(jsonData);
                         s_run.send();
                     }
                 });

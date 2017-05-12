@@ -6,7 +6,7 @@
       <input type="button" onclick="search();" value="搜索" class="vr_an_1 ju">
     </div>
     <div class="vr_szxx">
-      <a href="{{url('machine/add')}}" class="public_btn">添加设备</a>
+      <a href="{{url('manage/machine/add')}}" class="public_btn">添加设备</a>
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <th width="9%" height="68" align="center" valign="middle">设备类型</th>
@@ -24,10 +24,10 @@
               <td height="68">{{$item['created_at']}}</td>
               @if($item['is_del'])
                   <td height="50" align="center" valign="middle">正常</td>
-                  <td height="50" align="center" valign="middle"><a href="{{url('/machine/edit?id='.$item['id'])}}">修改</a> | <a href="javascript:{};" onclick="updateStatus(this);" itemid="{{$item['id']}}" status="{{$item['is_del']}}" class="lan_1 ry_zs_tj">冻结</a></td>
+                  <td height="50" align="center" valign="middle"><a href="{{url('manage//machine/edit?id='.$item['id'])}}">修改</a> | <a href="javascript:{};" onclick="updateStatus(this);" itemid="{{$item['id']}}" status="{{$item['is_del']}}" class="lan_1 ry_zs_tj">冻结</a></td>
               @else
                   <td height="50" align="center" valign="middle" class="lan_1">冻结</td>
-                  <td height="50" align="center" valign="middle"><a href="{{url('/machine/edit?id='.$item['id'])}}">修改</a> | <a href="javascript:{};" onclick="updateStatus(this);" itemid="{{$item['id']}}" status="{{$item['is_del']}}" class="lv ry_zs_gai">开启</a></td>
+                  <td height="50" align="center" valign="middle"><a href="{{url('manage//machine/edit?id='.$item['id'])}}">修改</a> | <a href="javascript:{};" onclick="updateStatus(this);" itemid="{{$item['id']}}" status="{{$item['is_del']}}" class="lv ry_zs_gai">开启</a></td>
               @endif
           </tr>
         @endforeach
@@ -53,17 +53,22 @@
             }
             $.ajax({
                 type: "POST",
-                url:'{{url('machine/editStatus')}}',
+                url:'{{url('manage/machine/editStatus')}}',
                 data: data_str,
                 dataType:'json',
                 success: function(serverJson){
-                    if(status == '1') {
-                        $(o).html('开启').attr('class','lv ry_zs_gai').attr('status','0');
-                        $(o).parent().prev().html("冻结").attr('class','lan_1');
+                    if(serverJson.flag == 'success'){
+                        if(status == '1') {
+                            $(o).html('开启').attr('class','lv ry_zs_gai').attr('status','0');
+                            $(o).parent().prev().html("冻结").attr('class','lan_1');
+                        }else{
+                            $(o).html('冻结').attr('class','lan_1 ry_zs_tj').attr('status','1');
+                            $(o).parent().prev().html("正常").attr('class','');
+                        }
                     }else{
-                        $(o).html('冻结').attr('class','lan_1 ry_zs_tj').attr('status','1');
-                        $(o).parent().prev().html("正常").attr('class','');
+                        alert(serverJson.msg);
                     }
+
                 }
             });
         });

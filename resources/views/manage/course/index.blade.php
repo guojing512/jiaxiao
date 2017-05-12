@@ -8,7 +8,7 @@
 </style>
 
 <div class="vr_szxx">
-    <a href="{{url('course/add')}}" class="public_btn">添加课程</a>
+    <a href="{{url('manage/course/add')}}" class="public_btn">添加课程</a>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <th width="5%" align="center" valign="middle">id</th>
@@ -28,7 +28,7 @@
                 <td><img src="{{$v['pic_cover']}}" width="100" height="100" /></td>
                 <td><img src="{{$v['pic_detail']}}" width="100" height="100" /></td>
                 <td>{{$v['score']}}</td>
-                <td><a href="{{url('course/edit').'?id='.$v['id']}}">修改</a></td>
+                <td><a href="{{url('manage/course/edit').'?id='.$v['id']}}">修改</a></td>
             </tr>
         @endforeach
     </table>

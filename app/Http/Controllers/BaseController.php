@@ -17,7 +17,7 @@ class BaseController extends Controller
      * 初始化类，进行各项判断和处理
      */
     public function __construct() {
-        
+
         //判断用户是否登录
         self::checkLogin();
         //判断用户是否有执行权限
@@ -34,12 +34,12 @@ class BaseController extends Controller
     final public function checkLogin() {
 
         $route = \Route::current()->uri();//获取当前路由
-        if(in_array($route, array('login','logout'))){
+        if(in_array($route, array('manage/login','manage/logout'))){
             return true;
         }else{
             $s_user = session()->get('user');
             if (empty($s_user) || !$s_user['id'] || !$s_user['group_id']) {
-                redirect()->to('login')->send();
+                redirect()->to('manage/login')->send();
                 exit;
 
             }
@@ -62,8 +62,8 @@ class BaseController extends Controller
         }
 
         // 如果是基础方法(登录或登出) 直接返回true
-        
-        if(in_array($route, array('login','logout','index'))){
+
+        if(in_array($route, array('manage/login','manage/logout','manage/index'))){
             return true;
         }
 

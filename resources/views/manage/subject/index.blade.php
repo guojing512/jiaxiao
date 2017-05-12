@@ -8,7 +8,7 @@
 </style>
 
 <div class="vr_szxx">
-    <a href="{{url('subject/add')}}" class="public_btn">添加科目</a>
+    <a href="{{url('manage/subject/add')}}" class="public_btn">添加科目</a>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <th width="5%" align="center" valign="middle">id</th>
@@ -22,7 +22,7 @@
                 <td>{{$v['id']}}</td>
                 <td>{{$v['subject_name']}}</td>
                 <td>{{$v['subject_desc']}}</td>
-                <td><a href="{{url('subject/edit').'?id='.$v['id']}}">修改</a></td>
+                <td><a href="{{url('manage/subject/edit').'?id='.$v['id']}}">修改</a></td>
             </tr>
         @endforeach
     </table>

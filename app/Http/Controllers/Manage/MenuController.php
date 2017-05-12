@@ -38,7 +38,7 @@ class MenuController extends BaseController
         //
         foreach($list_menu as $r) {
             $r['is_show'] = $r['is_show'] ? '显示' : '隐藏';
-            $r['str_manage'] = '<a href="'.url('menu/add'.'?id='.$r['id']).'">添加子菜单</a> | <a href="'.url('menu/edit'.'?id='.$r['id']).'">修改</a> | <a href="javascript:alert(\'暂时不支持删除\')">删除</a> ';
+            $r['str_manage'] = '<a href="'.url('manage/menu/add'.'?id='.$r['id']).'">添加子菜单</a> | <a href="'.url('manage/menu/edit'.'?id='.$r['id']).'">修改</a> | <a href="javascript:alert(\'暂时不支持删除\')">删除</a> ';
 
             //<a href="javascript:confirmurl(\''.url('menu/del'.'?id='.$r['id']).'\',\''.$r['menu_name'].'\')">删除</a>
             $array[] = $r;
@@ -106,7 +106,7 @@ class MenuController extends BaseController
 
 			if($res)
 			{
-				return redirect('menu')->with('success','添加成功');
+				return redirect('manage/menu')->with('success','添加成功');
 			}
 			else
 			{
@@ -194,7 +194,7 @@ class MenuController extends BaseController
 
 			if($res)
 			{
-				return redirect('menu')->with('success','更新成功');
+				return redirect('manage/menu')->with('success','更新成功');
 			}
 			else
 			{

@@ -59,7 +59,7 @@ class SubjectController extends BaseController
 
 			if($res)
 			{
-				return redirect('subject/index')->with('success','添加成功');
+				return redirect('manage/subject/index')->with('success','添加成功');
 			}
 			else
 			{
@@ -107,7 +107,7 @@ class SubjectController extends BaseController
 
 			if($res)
 			{
-				return redirect('subject/index')->with('success','更新成功');
+				return redirect('manage/subject/index')->with('success','更新成功');
 			}
 			else
 			{

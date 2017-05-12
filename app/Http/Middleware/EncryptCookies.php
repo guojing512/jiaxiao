@@ -12,6 +12,6 @@ class EncryptCookies extends BaseEncrypter
      * @var array
      */
     protected $except = [
-        //
+        'machine_num','machine_mac','machine_id'
     ];
 }

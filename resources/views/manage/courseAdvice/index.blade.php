@@ -6,7 +6,7 @@
       <input type="button" onclick="search();" value="搜索" class="vr_an_1 ju">
     </div>
     <div class="vr_szxx">
-      <a href="{{url('courseAdvice/add')}}" class="public_btn">添加课程</a>
+      <a href="{{url('manage/courseAdvice/add')}}" class="public_btn">添加课程</a>
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <th width="10%" height="68" align="center" valign="middle">课程</th>
@@ -21,7 +21,7 @@
               <td height="68">{{$item['advice_content']}}</td>
               <td height="68">{{$item['sort_num']}}</td>
               <td height="68">{{$item['created_at']}}</td>
-              <td height="50" align="center" valign="middle"><a href="{{url('/courseAdvice/edit?id='.$item['id'])}}">修改</a> </td>
+              <td height="50" align="center" valign="middle"><a href="{{url('manage//courseAdvice/edit?id='.$item['id'])}}">修改</a> </td>
           </tr>
         @endforeach
       </table>
@@ -46,7 +46,7 @@
             }
             $.ajax({
                 type: "POST",
-                url:'{{url('machine/editStatus')}}',
+                url:'{{url('manage/machine/editStatus')}}',
                 data: data_str,
                 dataType:'json',
                 success: function(serverJson){
